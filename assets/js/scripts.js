@@ -2,10 +2,22 @@ const green = document.querySelector('.green');
 const red = document.querySelector('.red');
 const yellow = document.querySelector('.yellow');
 const blue = document.querySelector('.blue');
+var score = document.querySelector('score');
+let scoret = "";
 
+function upScore(scoret){
+var tag = document.createElement("p");
+tag.setAttribute('id', 'score');
+var text = document.createTextNode(scoret); 
+tag.appendChild(text);
+var element = document.getElementsByClassName("scoretab")[0];
+element.appendChild(tag);
+}
 
-
-
+function gameOver(){
+    alert('You Lost this round!');
+    startFlashing();
+}
 const getRandomPanel = () => {
     const panels = [ 
         green, 
@@ -53,12 +65,12 @@ const panelClicked = panelClicked => {
             sequences.push(getRandomPanel());
             sequenceToGuess = [...sequences];
             alert('You won this round!');
+            upScore(scoret + " I ");
             startFlashing();
            
         } 
     } else {
-            //end game
-            alert('Game Over!');
+          gameOver();
         }
     };
 const startFlashing = async() => {
