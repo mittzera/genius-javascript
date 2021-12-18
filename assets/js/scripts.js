@@ -3,8 +3,7 @@ const red = document.querySelector('.red');
 const yellow = document.querySelector('.yellow');
 const blue = document.querySelector('.blue');
 
-let scoret = 0;
-document.getElementById("score").innerText = scoret;
+let scoret = 1;
 function incrementScore() { 
     document.getElementById("score").innerText = scoret++;
 
